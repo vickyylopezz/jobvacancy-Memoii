@@ -1,7 +1,7 @@
-Job Vacancy Application
+Job Vacancy Application - Victoria Abril Lopez
 =======================
 
-[![build status](https://gitlab.com/fiuba-memo2/jobvacancy/badges/master/build.svg)](https://gitlab.com/fiuba-memo2/jobvacancy/commits/master)
+[![build status](https://gitlab.com/fiuba-memo2/alumnos-jobvacancy/victoria/badges/master/build.svg)](https://gitlab.com/fiuba-memo2/alumnos-jobvacancy/victoria/commits/master)
 
 ## PostgreSQL setup
 
