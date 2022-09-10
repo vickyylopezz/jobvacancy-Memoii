@@ -4,6 +4,9 @@
   <%= f.label :location %>
   <%= f.text_field :location, :class => "input-block-level" %>
 	<%= errors_for(@errors, :location) %>
+	<%= f.label :experience %>
+	<%= f.text_field :experience, :class => "input-block-level" %>
+	<%= errors_for(@errors, :experience) %>
   <%= f.label :description %>
   <%= f.text_area :description, :class => "input-block-level" %>
 	<%= errors_for(@errors, :description) %>
