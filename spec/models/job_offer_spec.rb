@@ -12,5 +12,10 @@ describe JobOffer do
       job_offer = described_class.new(title: 'a title')
       expect(job_offer).to be_valid
     end
+
+    it 'should be valid when title is not blank and experience is given' do
+      job_offer = described_class.new(title: 'a title', experience: 5)
+      expect(job_offer).to be_valid
+    end
   end
 end

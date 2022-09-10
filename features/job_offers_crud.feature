@@ -13,8 +13,7 @@ Feature: Job Offers CRUD
 
   @wip
   Scenario: Create new offer with experience
-    When I create a new offer with "Programmer vacancy" as the title
-    And 5 as the experience
+    When I create a new offer with "Programmer vacancy" as the title and "5" as experience
     Then I should see a offer created confirmation message
     And I should see "Programmer vacancy" in my offers list
 
