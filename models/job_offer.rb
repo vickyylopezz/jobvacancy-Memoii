@@ -7,7 +7,9 @@ class JobOffer
                 :location, :experience, :description, :is_active,
                 :updated_on, :created_on
 
+  VALID_EXPERIENCE_REGEX = /\A^[0-9]+$\z/i.freeze
   validates :title, presence: true
+  validates :experience, format: { with: VALID_EXPERIENCE_REGEX, message: 'invalid experience' }
 
   def initialize(data = {})
     @id = data[:id]

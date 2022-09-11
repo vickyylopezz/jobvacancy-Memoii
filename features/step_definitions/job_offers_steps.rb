@@ -3,6 +3,7 @@ OFFER_UPDATED_MESSAGE = 'Offer updated'.freeze
 OFFER_DELETED_MESSAGE = 'Offer deleted'.freeze
 REGISTRATION_MENU = 'register'.freeze
 JOB_OFFERS_MENU = 'Job offers'.freeze
+INVALID_EXPERIENCE_MESSAGE = 'invalid experience'.freeze
 
 When(/^I browse the default page$/) do
   visit '/'
@@ -22,11 +23,15 @@ When(/^I create a new offer with "(.*?)" as the title$/) do |title|
   click_button('Create')
 end
 
-When(/^I create a new offer with "(.*?)" as the title and "(\d)" as experience$/) do |title, experience|
+When(/^I create a new offer with "(.*?)" as the title and "(.*?)" as experience$/) do |title, experience|
   visit '/job_offers/new'
   fill_in('job_offer_form[title]', with: title)
   fill_in('job_offer_form[experience]', with: experience)
   click_button('Create')
+end
+
+Then('I should see a invalid experience message') do
+  page.should have_content(INVALID_EXPERIENCE_MESSAGE)
 end
 
 Then(/^I should see a offer created confirmation message$/) do

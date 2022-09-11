@@ -8,6 +8,18 @@ describe JobOffer do
       end
     end
 
+    it 'should be invalid when experience is negative' do
+      check_validation(:experience, 'Experience invalid experience') do
+        described_class.new(title: 'a title', experience: -15)
+      end
+    end
+
+    it 'should be invalid when experience is not a number' do
+      check_validation(:experience, 'Experience invalid experience') do
+        described_class.new(title: 'a title', experience: 'this is invalid')
+      end
+    end
+
     it 'should be valid when title is not blank' do
       job_offer = described_class.new(title: 'a title')
       expect(job_offer).to be_valid
