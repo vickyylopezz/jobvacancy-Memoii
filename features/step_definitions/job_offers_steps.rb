@@ -30,6 +30,11 @@ When(/^I create a new offer with "(.*?)" as the title and "(.*?)" as experience$
   click_button('Create')
 end
 
+Then(/^I should see "(.*?)" in my offers list and experience "(.*?)"$/) do |content, experience|
+  page.should have_content(content)
+  page.should have_content(experience)
+end
+
 Then('I should see a invalid experience message') do
   page.should have_content(INVALID_EXPERIENCE_MESSAGE)
 end

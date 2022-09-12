@@ -1,6 +1,6 @@
 class JobOffer
-  NO_EXPERIENCE = ''.freeze
-  NOT_SPECIFIED = 0
+  EMPTY_EXPERIENCE = ''.freeze
+  NO_EXPERIENCE = 0
   include ActiveModel::Validations
 
   attr_accessor :id, :user, :user_id, :title,
@@ -20,7 +20,7 @@ class JobOffer
     @updated_on = data[:updated_on]
     @created_on = data[:created_on]
     @user_id = data[:user_id]
-    @experience = data[:experience].eql?(NO_EXPERIENCE) || data[:experience].nil? ? NOT_SPECIFIED : data[:experience]
+    @experience = data[:experience].eql?(EMPTY_EXPERIENCE) || data[:experience].nil? ? NO_EXPERIENCE : data[:experience]
     validate!
   end
 

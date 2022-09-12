@@ -16,10 +16,20 @@ Feature: Job Offers CRUD
     Then I should see a offer created confirmation message
     And I should see "Programmer vacancy" in my offers list
 
-  Scenario: Create new offer with no experience
+  Scenario: Create new offer with invalid experience
     When I create a new offer with "Programmer vacancy" as the title and "-19" as experience
     Then I should see a invalid experience message
     And I should not see "Programmer vacancy" in my offers list
+
+  Scenario: Create new offer with no experience
+    When I create a new offer with "Programmer vacancy" as the title and "" as experience
+    Then I should see a offer created confirmation message
+    And I should see "Programmer vacancy" in my offers list and experience "Not specified"
+
+  Scenario: Create new offer with zero experience
+    When I create a new offer with "Programmer vacancy" as the title and "0" as experience
+    Then I should see a offer created confirmation message
+    And I should see "Programmer vacancy" in my offers list and experience "Not specified"
 
   Scenario: Update offer
     Given I have "Programmer vacancy" offer in my offers list
